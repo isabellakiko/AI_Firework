@@ -57,15 +57,8 @@ const Operation = (
         </div>
         <Button
           className='ml-3 w-8 px-0'
-          variant='primary'
+          variant='secondary-accent'
           onClick={onSend}
-          style={
-            theme
-              ? {
-                backgroundColor: theme.primaryColor,
-              }
-              : {}
-          }
         >
           <RiSendPlane2Fill className='h-4 w-4' />
         </Button>
