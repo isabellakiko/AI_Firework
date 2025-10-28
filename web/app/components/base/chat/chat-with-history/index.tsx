@@ -59,7 +59,7 @@ const ChatWithHistory: FC<ChatWithHistoryProps> = ({
         <div className={cn(
           'flex w-[236px] flex-col p-1 pr-0 transition-all duration-200 ease-in-out',
           isSidebarCollapsed && 'w-0 overflow-hidden !p-0',
-        )}>
+        )} style={{ backgroundColor: '#615e5f' }}>
           <Sidebar />
         </div>
       )}

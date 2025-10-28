@@ -31,9 +31,12 @@ const Item: FC<ItemProps> = ({
       ref={ref}
       key={item.id}
       className={cn(
-        'system-sm-medium group flex cursor-pointer rounded-lg p-1 pl-3 text-components-menu-item-text hover:bg-state-base-hover',
-        isSelected && 'bg-state-accent-active text-text-accent hover:bg-state-accent-active',
+        'system-sm-medium group flex cursor-pointer rounded-lg p-1 pl-3 hover:bg-state-base-hover',
       )}
+      style={{
+        color: isSelected ? '#f2c823' : '#e0e0e0',
+        backgroundColor: isSelected ? 'rgba(242, 200, 35, 0.15)' : 'transparent',
+      }}
       onClick={() => onChangeConversation(item.id)}
     >
       <div className='grow truncate p-1 pl-0' title={item.name}>{item.name}</div>

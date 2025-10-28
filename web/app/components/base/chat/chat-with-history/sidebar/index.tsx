@@ -79,10 +79,13 @@ const Sidebar = ({ isPanel }: Props) => {
   }, [showRename, handleRenameConversation, handleCancelRename])
 
   return (
-    <div className={cn(
-      'flex w-full grow flex-col',
-      isPanel && 'rounded-xl border-[0.5px] border-components-panel-border-subtle bg-components-panel-bg shadow-lg',
-    )}>
+    <div
+      className={cn(
+        'flex w-full grow flex-col',
+        isPanel && 'rounded-xl border-[0.5px] border-components-panel-border-subtle shadow-lg',
+      )}
+      style={{ backgroundColor: '#615e5f' }}
+    >
       <div className={cn(
         'flex shrink-0 items-center gap-3 p-3 pr-2',
       )}>
@@ -95,7 +98,7 @@ const Sidebar = ({ isPanel }: Props) => {
             imageUrl={appData?.site.icon_url}
           />
         </div>
-        <div className={cn('system-md-semibold grow truncate text-text-secondary')}>{appData?.site.title}</div>
+        <div className={cn('system-md-semibold grow truncate')} style={{ color: '#f9fafb' }}>{appData?.site.title}</div>
         {!isMobile && isSidebarCollapsed && (
           <ActionButton size='l' onClick={() => handleSidebarCollapse(false)}>
             <RiExpandRightLine className='h-[18px] w-[18px]' />
@@ -145,7 +148,7 @@ const Sidebar = ({ isPanel }: Props) => {
             <div className={cn(
               'flex shrink-0 items-center gap-1.5 px-1',
             )}>
-              <div className='system-2xs-medium-uppercase text-text-tertiary'>{t('share.chat.poweredBy')}</div>
+              <div className='system-2xs-medium-uppercase' style={{ color: '#98a2b3' }}>{t('share.chat.poweredBy')}</div>
               {
                 systemFeatures.branding.enabled && systemFeatures.branding.workspace_logo
                   ? <img src={systemFeatures.branding.workspace_logo} alt='logo' className='block h-5 w-auto' />

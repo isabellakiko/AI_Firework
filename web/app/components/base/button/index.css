@@ -95,17 +95,17 @@
     @apply
     border-[0.5px]
     shadow-xs
-    bg-components-button-secondary-bg
-    border-components-button-secondary-border
-    hover:bg-components-button-secondary-bg-hover
-    hover:border-components-button-secondary-border-hover
+    bg-components-button-secondary-accent-bg
+    border-components-button-secondary-accent-border
+    hover:bg-components-button-secondary-accent-bg-hover
+    hover:border-components-button-secondary-accent-border-hover
     text-components-button-secondary-accent-text;
   }
 
   .btn-secondary-accent.btn-disabled {
     @apply
-    bg-components-button-secondary-bg-disabled
-    border-components-button-secondary-border-disabled
+    bg-components-button-secondary-accent-bg-disabled
+    border-components-button-secondary-accent-border-disabled
     text-components-button-secondary-accent-text-disabled;
   }
 
