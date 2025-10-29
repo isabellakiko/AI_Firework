@@ -16,7 +16,6 @@ import List from '@/app/components/base/chat/chat-with-history/sidebar/list'
 import MenuDropdown from '@/app/components/share/text-generation/menu-dropdown'
 import Confirm from '@/app/components/base/confirm'
 import RenameModal from '@/app/components/base/chat/chat-with-history/sidebar/rename-modal'
-import DifyLogo from '@/app/components/base/logo/dify-logo'
 import type { ConversationItem } from '@/models/share'
 import cn from '@/utils/classnames'
 import { useGlobalPublicStore } from '@/context/global-public-context'
@@ -154,7 +153,7 @@ const Sidebar = ({ isPanel }: Props) => {
                   ? <img src={systemFeatures.branding.workspace_logo} alt='logo' className='block h-5 w-auto' />
                   : appData?.custom_config?.replace_webapp_logo
                     ? <img src={`${appData?.custom_config?.replace_webapp_logo}`} alt='logo' className='block h-5 w-auto' />
-                    : <DifyLogo size='small' />
+                    : <span className='system-xs-semibold-uppercase' style={{ color: '#f2c823' }}>YOMY</span>
               }
             </div>
           )}

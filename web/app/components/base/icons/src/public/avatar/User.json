@@ -25,7 +25,7 @@
 							"width": "512",
 							"height": "512",
 							"rx": "256",
-							"fill": "#B2DDFF"
+							"fill": "#615e5f"
 						},
 						"children": []
 					},
@@ -33,11 +33,11 @@
 						"type": "element",
 						"name": "circle",
 						"attributes": {
-							"opacity": "0.68",
+							"opacity": "0.99",
 							"cx": "256",
 							"cy": "196",
 							"r": "84",
-							"fill": "white"
+							"fill": "#f2c823"
 						},
 						"children": []
 					},
@@ -45,12 +45,12 @@
 						"type": "element",
 						"name": "ellipse",
 						"attributes": {
-							"opacity": "0.68",
+							"opacity": "0.99",
 							"cx": "256",
 							"cy": "583.5",
 							"rx": "266",
 							"ry": "274.5",
-							"fill": "white"
+							"fill": "#f2c823"
 						},
 						"children": []
 					}
