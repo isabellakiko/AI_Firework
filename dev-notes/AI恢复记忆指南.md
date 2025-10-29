@@ -22,7 +22,7 @@
 
 **目标**：
 - ✅ 了解项目背景和目标
-- ✅ 知道已完成的工作（2次提交、14处修改）
+- ✅ 知道已完成的工作（3次提交、22处修改、2次Docker部署）
 - ✅ 掌握品牌色体系（黄色 #f2c823 + 深灰 #615e5f）
 - ✅ 快速定位组件文件位置
 
@@ -30,17 +30,19 @@
 
 ### 第2步：了解最新修改（重要）
 
-**读取最新的2个修改记录**：
+**读取最新的修改记录**：
 
 ```bash
-1. dev-notes/修改记录/2025-10-28-方案1品牌配色实现.md    # 侧边栏品牌化
-2. dev-notes/修改记录/2025-10-28-发送框品牌化定制.md    # 发送框品牌化
+1. dev-notes/修改记录/2025-10-29-Powered-by品牌化修改.md     # YOMY 品牌标识
+2. dev-notes/修改记录/2025-10-29-用户头像品牌化修改.md        # 用户头像定制
+3. dev-notes/修改记录/2025-10-29-Docker第二次部署-YOMY和头像.md  # 第2次Docker部署（重要踩坑）
 ```
 
 **目标**：
 - ✅ 理解每处修改的原因、位置、代码
 - ✅ 知道修复了哪些原代码 bug
 - ✅ 掌握品牌色的应用规则
+- ✅ 了解 Docker 部署的关键踩坑（restart 不更新镜像）
 
 ---
 
@@ -181,9 +183,9 @@ cd docker && docker compose restart web
 ### Git 状态
 - **当前分支**：`feature/brand-customization`
 - **主分支**：`main`
-- **提交数**：5 次（2次功能 + 3次文档）
+- **提交数**：3 次功能提交
 
-### 已修改文件（10个）
+### 已修改文件（12个）
 ```
 侧边栏品牌化（7个文件）：
 - web/app/components/base/chat/chat-with-history/index.tsx
@@ -199,6 +201,11 @@ cd docker && docker compose restart web
 - web/app/components/base/chat/chat/chat-input-area/operation.tsx
 - web/themes/light.css
 
+YOMY + 头像品牌化（3个文件）：
+- web/app/components/base/chat/chat-with-history/sidebar/index.tsx
+- web/app/components/base/icons/assets/public/avatar/user.svg
+- web/app/components/base/icons/src/public/avatar/User.json
+
 环境配置（2个文件）：
 - docker/docker-compose.yaml（已配置使用自定义镜像）
 - web/.env.local
@@ -206,8 +213,10 @@ cd docker && docker compose restart web
 
 ### Docker 部署
 - **自定义镜像**：`langgenius/dify-web:brand-customization`
+- **当前镜像 SHA**：`980129f247ea`（第2次构建）
 - **镜像大小**：780MB
-- **部署状态**：✅ 已验证，品牌化生效
+- **部署次数**：2 次（第2次解决了 restart 不更新镜像问题）
+- **部署状态**：✅ 已验证，完整品牌化生效
 - **访问地址**：http://localhost:80
 
 ---
@@ -286,11 +295,12 @@ output_mode: "files_with_matches"
 
 - [ ] 知道项目是 Dify 1.8.0 前端样式定制
 - [ ] 知道品牌色是黄色 #f2c823 + 深灰 #615e5f
-- [ ] 知道已完成侧边栏和发送框品牌化
+- [ ] 知道已完成侧边栏、发送框、YOMY、头像品牌化
 - [ ] 知道当前在 feature/brand-customization 分支
 - [ ] 知道如何查找组件文件位置
 - [ ] 知道如何创建修改记录文档
 - [ ] 知道热更新环境已配置好
+- [ ] 知道 Docker 部署必须用 `--force-recreate`（重要踩坑）
 
 ---
 
@@ -309,13 +319,15 @@ output_mode: "files_with_matches"
 ## 项目状态
 - 📁 项目：Dify 1.8.0 前端样式定制（YBP消防助手）
 - 🎨 品牌色：黄色 #f2c823 + 深灰 #615e5f
-- ✅ 已完成：侧边栏品牌化 + 发送框品牌化
-- 📊 成果：2次Git提交，14处修改，10个文件
+- ✅ 已完成：侧边栏 + 发送框 + YOMY品牌标识 + 用户头像品牌化
+- 📊 成果：3次Git提交，22处修改，12个文件
 - 🌿 分支：feature/brand-customization
-- 📝 文档：完整（4个基础文档 + 3个修改记录）
+- 📝 文档：完整（4个基础文档 + 7个修改记录）
+- 🐳 Docker：2次部署（已解决 restart 不更新镜像问题）
 
 ## 环境状态
 - ✅ Docker 后端：http://localhost:5001
+- ✅ Docker 部署：http://localhost:80（完整品牌化）
 - ✅ 前端开发：http://localhost:3000
 - ✅ 热更新：正常工作
 

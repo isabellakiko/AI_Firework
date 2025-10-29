@@ -117,13 +117,23 @@ YYYY-MM-DD-简短描述.md
 - **状态**：✅ 已完成
 - **文档**：参见 [02-配置进度.md](../02-配置进度.md)
 
-#### 2025-10-29：Docker 部署品牌化镜像
+#### 2025-10-29：Docker 第一次部署（侧边栏+发送框）
 - **文件**：`docker/docker-compose.yaml`
 - **内容**：构建自定义前端镜像，配置 Docker 使用品牌化版本
 - **关键操作**：构建镜像、修改配置、重启容器
 - **状态**：✅ 已完成并验证通过
 - **文档**：[2025-10-29-Docker部署品牌化镜像.md](./2025-10-29-Docker部署品牌化镜像.md)
-- **镜像**：`langgenius/dify-web:brand-customization`
+- **镜像**：`langgenius/dify-web:brand-customization` (SHA: d3b33c34b66d)
+
+#### 2025-10-29：Docker 第二次部署（YOMY+头像）⭐ **新增**
+- **文件**：构建新镜像并强制重建容器
+- **内容**：部署 Powered by YOMY + 用户头像品牌化修改
+- **关键操作**：构建镜像、**--force-recreate** 强制重建容器
+- **踩坑**：`docker compose restart` 不会使用新镜像，必须用 `--force-recreate`
+- **状态**：✅ 已完成并验证通过
+- **文档**：[2025-10-29-Docker第二次部署-YOMY和头像.md](./2025-10-29-Docker第二次部署-YOMY和头像.md)
+- **镜像**：`langgenius/dify-web:brand-customization` (SHA: 980129f247ea)
+- **Git提交**：`07ff264e7`
 
 ---
 
@@ -207,24 +217,26 @@ ls | grep "2025-10-28"  # 查找特定日期的文件
 
 ## 📊 统计信息
 
-- **环境配置修改**：4 项（已完成）
+- **环境配置修改**：5 项（已完成）
   - Docker 端口映射配置
   - 插件安装优化
   - 前端环境配置
-  - Docker 部署品牌化镜像 ⭐ **新增**
+  - Docker 第一次部署（侧边栏+发送框）
+  - Docker 第二次部署（YOMY+头像）⭐ **新增**
 - **样式修改**：5 项（已完成）✨
   - 背景色测试探索：1 项
   - 侧边栏品牌化：10 处关键修改（7个文件）
   - 发送框品牌化：4 处关键修改（3个文件）
   - Powered by 品牌化：1 处关键修改（1个文件）
-  - 用户头像品牌化：8 处修改（2个文件：SVG + JSON）⭐ **新增**
+  - 用户头像品牌化：8 处修改（2个文件：SVG + JSON）
 - **组件修改**：已包含在样式修改中
 - **逻辑修改**：0 项
 
-**总计代码修改**：23 处关键修改
+**总计代码修改**：22 处关键修改
 **涉及文件**：12 个文件
-**Git 提交**：2 次（feature/brand-customization 分支）
-**Docker 镜像**：1 个自定义镜像（`langgenius/dify-web:brand-customization`）
+**Git 提交**：3 次（feature/brand-customization 分支）
+**Docker 镜像**：2 次构建（同名标签，最新 SHA: 980129f247ea）
+**Docker 部署**：2 次（第2次解决了 `restart` 不更新镜像的问题）
 
 ---
 
