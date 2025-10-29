@@ -114,6 +114,53 @@ cd docker && docker compose ps
 
 ---
 
+### 当需要重新部署 Docker 时
+
+**⭐ 重要**：`dev-notes/前端修改后重新部署指南.md`
+
+**内容**：
+- 为什么修改前端需要重新构建 Docker 镜像
+- 详细的构建和部署步骤
+- 日常开发流程建议
+- 常见问题解答
+
+**快速流程**：
+```bash
+# 1. 提交 Git
+git add . && git commit -m "..."
+
+# 2. 构建镜像（5-10 分钟）
+docker build -t langgenius/dify-web:brand-customization ./web
+
+# 3. 重启容器
+cd docker && docker compose restart web
+```
+
+---
+
+### 当需要切换 Docker 镜像版本时
+
+**查看**：`dev-notes/Docker镜像版本快速切换指南.md`
+
+**用法**：
+- 在官方版本和品牌化版本之间快速切换
+- 对比展示品牌化效果
+- 临时测试官方版本功能
+
+**快速切换**（10秒完成）：
+```bash
+# 1. 修改 docker/docker-compose.yaml 第 659 行
+#    官方版本：image: langgenius/dify-web:1.8.0
+#    品牌化版本：image: langgenius/dify-web:brand-customization
+
+# 2. 重启容器
+cd docker && docker compose restart web
+
+# 3. 访问 http://localhost:80
+```
+
+---
+
 ## 🎯 关键信息速查
 
 ### 项目路径
@@ -134,7 +181,7 @@ cd docker && docker compose ps
 ### Git 状态
 - **当前分支**：`feature/brand-customization`
 - **主分支**：`main`
-- **提交数**：4 次（2次功能 + 2次文档）
+- **提交数**：5 次（2次功能 + 3次文档）
 
 ### 已修改文件（10个）
 ```
@@ -153,9 +200,15 @@ cd docker && docker compose ps
 - web/themes/light.css
 
 环境配置（2个文件）：
-- docker/docker-compose.yaml
+- docker/docker-compose.yaml（已配置使用自定义镜像）
 - web/.env.local
 ```
+
+### Docker 部署
+- **自定义镜像**：`langgenius/dify-web:brand-customization`
+- **镜像大小**：780MB
+- **部署状态**：✅ 已验证，品牌化生效
+- **访问地址**：http://localhost:80
 
 ---
 
@@ -293,4 +346,4 @@ output_mode: "files_with_matches"
 ---
 
 *创建日期：2025-10-28*
-*最后更新：2025-10-28*
+*最后更新：2025-10-29*
