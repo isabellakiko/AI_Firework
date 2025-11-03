@@ -22,7 +22,7 @@
 
 **目标**：
 - ✅ 了解项目背景和目标
-- ✅ 知道已完成的工作（3次提交、22处修改、2次Docker部署）
+- ✅ 知道已完成的工作（3次提交（待提交1次）、23处修改、2次Docker部署）
 - ✅ 掌握品牌色体系（黄色 #f2c823 + 深灰 #615e5f）
 - ✅ 快速定位组件文件位置
 
@@ -36,6 +36,7 @@
 1. dev-notes/修改记录/2025-10-29-Powered-by品牌化修改.md     # YOMY 品牌标识
 2. dev-notes/修改记录/2025-10-29-用户头像品牌化修改.md        # 用户头像定制
 3. dev-notes/修改记录/2025-10-29-Docker第二次部署-YOMY和头像.md  # 第2次Docker部署（重要踩坑）
+4. dev-notes/修改记录/2025-11-03-添加历史对话标识.md        # 历史对话标题 ⭐ 最新
 ```
 
 **目标**：
@@ -163,6 +164,24 @@ cd docker && docker compose restart web
 
 ---
 
+### 当遇到 Docker 数据问题时
+
+**⚠️ 重要**：`dev-notes/Docker数据丢失与恢复说明.md`
+
+**内容**：
+- Docker volumes 数据丢失事件记录
+- 源代码 vs 运行时数据的区别
+- 为什么运行时数据不在 Git 中
+- 数据备份和恢复建议
+
+**关键概念**：
+- ✅ 源代码（Git）：可恢复，应该提交
+- ❌ 运行时数据（volumes）：不可恢复，不应该提交
+- 打包项目时只删除可恢复的内容（node_modules、.next）
+- **不要删除** docker/volumes/（会导致数据永久丢失）
+
+---
+
 ## 🎯 关键信息速查
 
 ### 项目路径
@@ -177,13 +196,13 @@ cd docker && docker compose restart web
 - **应用名称**：YBP消防助手
 
 ### 品牌色
-- **黄色**：`#f2c823`（行动按钮、输入文字、强调状态）
+- **黄色**：`#f2c823`（行动按钮、输入文字、强调状态、区域标识）
 - **深灰**：`#615e5f`（侧边栏背景、图标）
 
 ### Git 状态
 - **当前分支**：`feature/brand-customization`
 - **主分支**：`main`
-- **提交数**：3 次功能提交
+- **提交数**：3 次功能提交（待提交：历史对话标识）
 
 ### 已修改文件（12个）
 ```
@@ -205,6 +224,9 @@ YOMY + 头像品牌化（3个文件）：
 - web/app/components/base/chat/chat-with-history/sidebar/index.tsx
 - web/app/components/base/icons/assets/public/avatar/user.svg
 - web/app/components/base/icons/src/public/avatar/User.json
+
+历史对话标识（1个文件）：⭐ 新增
+- web/app/components/base/chat/chat-with-history/sidebar/index.tsx（新增5行代码）
 
 环境配置（2个文件）：
 - docker/docker-compose.yaml（已配置使用自定义镜像）
@@ -295,7 +317,7 @@ output_mode: "files_with_matches"
 
 - [ ] 知道项目是 Dify 1.8.0 前端样式定制
 - [ ] 知道品牌色是黄色 #f2c823 + 深灰 #615e5f
-- [ ] 知道已完成侧边栏、发送框、YOMY、头像品牌化
+- [ ] 知道已完成侧边栏、发送框、YOMY、头像、历史对话标识品牌化
 - [ ] 知道当前在 feature/brand-customization 分支
 - [ ] 知道如何查找组件文件位置
 - [ ] 知道如何创建修改记录文档
@@ -319,10 +341,10 @@ output_mode: "files_with_matches"
 ## 项目状态
 - 📁 项目：Dify 1.8.0 前端样式定制（YBP消防助手）
 - 🎨 品牌色：黄色 #f2c823 + 深灰 #615e5f
-- ✅ 已完成：侧边栏 + 发送框 + YOMY品牌标识 + 用户头像品牌化
-- 📊 成果：3次Git提交，22处修改，12个文件
+- ✅ 已完成：侧边栏 + 发送框 + YOMY品牌标识 + 用户头像 + 历史对话标识
+- 📊 成果：3次Git提交（待提交1次），23处修改，12个文件
 - 🌿 分支：feature/brand-customization
-- 📝 文档：完整（4个基础文档 + 7个修改记录）
+- 📝 文档：完整（5个基础文档 + 4个操作指南 + 8个修改记录）
 - 🐳 Docker：2次部署（已解决 restart 不更新镜像问题）
 
 ## 环境状态
@@ -348,11 +370,20 @@ output_mode: "files_with_matches"
 
 ## 📖 相关文档
 
+### 基础文档
 - [项目总览](./README.md)
 - [项目背景](./01-项目背景.md)
 - [配置进度](./02-配置进度.md)
 - [聊天页面探索](./03-聊天页面探索.md)
 - [组件位置索引](./04-组件位置索引.md)
+- [侧边栏实现详解](./05-侧边栏实现详解.md) ⭐ 新增
+
+### 操作指南
+- [前端修改后重新部署指南](./前端修改后重新部署指南.md)
+- [Docker镜像版本快速切换指南](./Docker镜像版本快速切换指南.md)
+- [Docker数据丢失与恢复说明](./Docker数据丢失与恢复说明.md)
+
+### 修改记录
 - [修改记录索引](./修改记录/README.md)
 
 ---

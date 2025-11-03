@@ -115,6 +115,12 @@ const Sidebar = ({ isPanel }: Props) => {
           {t('share.chat.newChat')}
         </Button>
       </div>
+      {/* 历史对话标题 */}
+      <div className='shrink-0 px-3 pb-2'>
+        <div className='system-md-semibold' style={{ color: '#f2c823' }}>
+          历史对话
+        </div>
+      </div>
       <div className='h-0 grow space-y-2 overflow-y-auto px-3 pt-4'>
         {/* pinned list */}
         {!!pinnedConversationList.length && (
