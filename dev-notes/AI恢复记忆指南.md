@@ -128,7 +128,14 @@ cd docker && docker compose ps
 - 日常开发流程建议
 - 常见问题解答
 
-**快速流程**：
+**⚠️ 首次部署必读**：如果是从 Git 克隆后首次部署，必须先构建镜像：
+```bash
+# 首次部署（必需！）
+docker build -t langgenius/dify-web:brand-customization ./web
+cd docker && docker compose up -d
+```
+
+**快速流程**（后续部署）：
 ```bash
 # 1. 提交 Git
 git add . && git commit -m "..."
@@ -136,8 +143,8 @@ git add . && git commit -m "..."
 # 2. 构建镜像（5-10 分钟）
 docker build -t langgenius/dify-web:brand-customization ./web
 
-# 3. 重启容器
-cd docker && docker compose restart web
+# 3. 强制重建容器
+cd docker && docker compose up -d --force-recreate web
 ```
 
 ---
@@ -383,6 +390,7 @@ output_mode: "files_with_matches"
 - [前端修改后重新部署指南](./前端修改后重新部署指南.md)
 - [Docker镜像版本快速切换指南](./Docker镜像版本快速切换指南.md)
 - [Docker数据丢失与恢复说明](./Docker数据丢失与恢复说明.md)
+- [部署问题排查](./部署问题排查/) ⭐ 新增 - 常见部署错误及解决方案
 
 ### 修改记录
 - [修改记录索引](./修改记录/README.md)

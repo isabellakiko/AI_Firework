@@ -65,6 +65,28 @@ Dify is an open-source platform for developing LLM applications. Its intuitive i
 
 </br>
 
+> ### ⚠️ Important: Brand Customization Version
+>
+> **This is a customized brand version of Dify.** If you cloned from the `feature/brand-customization` branch, you MUST build the custom Docker image first:
+>
+> ```bash
+> # Step 1: Build custom image (REQUIRED for first-time deployment)
+> docker build -t langgenius/dify-web:brand-customization ./web
+>
+> # Step 2: Start services
+> cd docker
+> cp .env.example .env
+> docker compose up -d
+> ```
+>
+> **If you skip Step 1, you will get an error:** `manifest for langgenius/dify-web:brand-customization not found`
+>
+> For detailed deployment instructions and troubleshooting, see [dev-notes/交付报告-方慧敏/02-部署操作步骤.md](dev-notes/交付报告-方慧敏/02-部署操作步骤.md)
+
+</br>
+
+### Standard Dify Deployment
+
 The easiest way to start the Dify server is through [Docker Compose](docker/docker-compose.yaml). Before running Dify with the following commands, make sure that [Docker](https://docs.docker.com/get-docker/) and [Docker Compose](https://docs.docker.com/compose/install/) are installed on your machine:
 
 ```bash
